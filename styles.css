@@ -1,0 +1,259 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #fff;
+}
+
+header {
+    background-color: #222;
+    padding: 10px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo span {
+    font-size: 36px; /* Increased font size for prominence */
+    font-weight: bold;
+    color: #f2a900; /* Gold color for a touch of luxury */
+    text-transform: uppercase;
+    padding: 10px 20px; /* Add padding if needed */
+    display: inline-block; /* Ensure proper width adjustment */
+}
+
+
+/* Increase the width of the search container */
+.search-container {
+    position: relative;
+    max-width: 800px; /* Set a maximum width for the container */
+    width: 100%; /* Allow the container to take up full available width */
+    margin: auto; /* Center the container horizontally */
+}
+
+/* Ensure search input stretches to fill available space */
+#searchInput {
+    padding: 10px;
+    padding-right: 50px; /* Adjusted padding-right for space for the search icon */
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    outline: none;
+    font-size: 16px;
+    width: 100%; /* Ensure the input takes up full width of the container */
+}
+
+/* Adjust the position and size of the search button */
+#searchButton {
+    position: absolute;
+    right: 10px; /* Ensure the button is properly aligned to the right edge */
+    top: 50%;
+    transform: translateY(-50%); /* Center the button vertically */
+    height: 60%; /* Adjust the height if needed to match input field */
+    border: none;
+    background: transparent;
+    color: #f2a900;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Center icon vertically */
+}
+
+#searchButton i {
+    pointer-events: none;
+}
+
+
+.video-container {
+    padding: 20px;
+}
+
+.video-player {
+    display: none; /* Hide by default, show with JS */
+}
+
+video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #f2a900;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e89a00;
+}
+
+footer {
+    background-color: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+/* Video container and card styles */
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Increase the minimum width of video cards */
+    gap: 1.5rem; /* Increase space between video cards */
+    padding: 5vh 5vw 2vh 5vw; /* Adjusted padding to accommodate search bar */
+}
+
+/* Video card styles */
+.video-card {
+    background: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Video card title styling */
+.video-card h3 {
+  padding: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0;
+}
+
+
+/* Hover effects for video cards */
+.video-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.video-card img {
+    width: 100%;
+    height: 200px; /* Increased height for wider cards */
+    object-fit: cover;
+}
+
+
+
+/* Thumbnail overlay for play button */
+.video-card:hover::after {
+    content: '▶️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+    opacity: 0.8;
+}
+
+
+/* Video player styling */
+.video-player {
+    display: none;
+    position: fixed;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    width: 80vw;
+    max-width: 800px;
+}
+
+/* Make video player collapsible */
+.video-player.collapsed {
+    display: none;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.closebtn {
+    background-color: #f44;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 0 0 8px 8px;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #d33;
+}
+
+/* Footer styling */
+footer {
+    background: #1e1e1e;
+    text-align: center;
+    padding: 2vh 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+    }
+
+    #searchInput {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    #searchButton {
+        width: 100%;
+    }
+
+    .video-card {
+        width: 100%;
+    }
+
+    video {
+        width: 90vw;
+        height: auto;
+    }
+}
+
+
+/* styles.css */
+.video-item {
+    margin: 10px 0;
+}
+
+.page-number {
+    margin: 0 5px;
+    text-decoration: none;
+    color: blue;
+}
+
+.page-number:hover {
+    text-decoration: underline;
+}
+
+#videoPlayer {
+    display: none;
+}
